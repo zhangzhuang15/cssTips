@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 500px;
+            height: 300px;
+            padding: 50px 0;
+            margin: 40px 0;
+            border: 2px solid black;
+            overflow: auto;
+        }
+        .child {
+            height: 200px;
+            border: 1px solid green;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 你知道 clientHeight offsetHeight scrollHeight clientTop offsetTop 嘛 ？ -->
+    <div id="box">
+        <div class="child" id="child"></div>
+        <div class="child" style="position: sticky; top: 50px;"></div>
+        <div class="child"></div>
+    </div>
+    <div id="area"></div>
+    <div id="child-area"></div>
+    <script>
+        const box = document.getElementById('box')
+        const area = document.getElementById('area')
+        const childArea = document.getElementById('child-area')
+        const child = document.getElementById('child')
+
+        const clientHeight = box.clientHeight
+        const offsetHeight = box.offsetHeight
+        const scrollHeight = box.scrollHeight
+        const height = 300
+        const padding = 100
+        const margin = 80
+        const border = 4
+
+        box.addEventListener('scroll', e => {
+            area.innerHTML = `
+                padding: ${padding}
+                margin: ${margin}
+                border: ${border}
+                height: ${height}
+                scrollTop: ${e.target.scrollTop}
+                clientHeight: ${clientHeight} 
+                offsetHeight: ${offsetHeight} 
+                scrollHeight: ${scrollHeight} 
+            `
+            const {top, left} = child.getBoundingClientRect()
+            childArea.innerHTML = `
+                clientLeft: ${child.clientLeft}
+                clientTop: ${child.clientTop}
+                topToViewport: ${top}
+                leftToViewport: ${left}
+                offsetLeft: ${child.offsetLeft}
+                offsetTop: ${child.offsetTop}
+            `
+        })
+        
+        
+    </script>
+    <!-- 
+        通过结果，可以知道如下关系
+        clientHeight = height + paddingTop + paddingBottom
+        offsetHeight = height + paddingTop + paddingBottom + borderTop + borderBottom
+        scrollHeight = paddingTop + paddingBottom + 子元素占据的高度总和
+
+        另外还可以得到：
+        当滚动条触底时 scrollHeight - scrollTop === clientHeight
+
+        clientTop clientLeft 其实就是 borderTopWidth borderLeftWidth
+
+        offsetTop = 元素borderTop外边缘 到 最近定位祖先元素的borderTop内边缘  的 间距
+        offsetLeft = 元素borderLeft外边缘 到 最近定位祖先元素的borderLeft内边缘 的 间距
+    -->
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="头条图片流实现">
+        <meta name="keywords" content="头条 图片流 demo 视觉效果 研究">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
+        <title>图片水平等高瀑布流技术实现</title>
+        <link rel="stylesheet" href="./main.css">
+    </head>
+    <body>
+        <div class="container"></div>
+        <script type="module">
+            import { ImageLayoutManager } from "./main.js"
+            import { imageList } from "./data.js"
+            
+            const container = document.querySelector(".container")
+            const lineWidth = parseInt(document.defaultView.getComputedStyle(container).width.split("px")[0]);
+            const lineNumber = 4
+            const manager = new ImageLayoutManager()
+            manager.wrap(imageList)
+            manager.setLineNumber(lineNumber)
+            manager.setLineWidth(lineWidth-6)
+            manager.setDefaultRatio(1.6)
+            const list = manager.layout()
+            console.log(list)
+            
+            let idex = 0
+            while(idex < list.length) {
+                const imageLine = document.createElement("div")
+                imageLine.setAttribute("class", "image-line")
+                for(let i = 0; i < lineNumber && idex < list.length; i++) {
+                    const item = document.createElement("div")
+                    item.setAttribute("class", "item")
+                   
+                    const img = document.createElement("img")
+                    img.src = list[idex].src
+                    img.style.width = list[idex].width + "px"
+                    img.style.height = list[idex].height + "px"
+
+                    item.appendChild(img)
+                    imageLine.append(item)
+                    idex++
+                }
+                container.append(imageLine)
+            }
+        </script>
+    </body>
+</html>

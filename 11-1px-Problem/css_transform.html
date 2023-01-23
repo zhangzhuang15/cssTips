@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button1 {
+            width: 200px;
+            height: 100px;
+            border: 0.25px solid black;
+        }
+
+        .button2 {
+            position:relative;
+            width: 200px;
+            height: 100px;
+        }
+        
+        .button2::after {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 400%;
+            height: 400%;
+            border: 1px solid black;
+            transform-origin: 0 0;
+            transform: scale(0.25);
+        }
+    </style>
+</head>
+<body>
+    <!-- devicePixelRatio: 2 -->
+    <!-- 在 Safari浏览器中，0.25px 被识别为 0.5px -->
+    <div class="button1"></div>
+    <h3>------分割线------</h3>
+    <div class="button2"></div>
+</body>
+</html>

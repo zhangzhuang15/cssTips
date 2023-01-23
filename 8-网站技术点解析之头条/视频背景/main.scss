@@ -1,0 +1,53 @@
+body, html, * {
+    padding: 0px;
+    margin: 0px;
+    outline: 0;
+}
+.container {
+    position: relative;
+    // height 必需设置定值，否则 video 中的height和container不一致
+    height: 420px;
+    min-width: 1066px;
+    background-color: #222;
+    overflow: hidden;
+    & video {
+        position: relative;
+        
+        object-fit: cover;
+        // 不指定 100% 的话，视频条会很宽，出现水平滚动条
+        width: 100%;
+        height: 100%;
+    }
+
+    .title {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        z-index: 1;
+        // 默认是 content-box, 加入padding属性后，整体会变宽超过container的宽度
+        box-sizing: border-box;
+
+        width: 100%;
+        left: 0px;
+        top: 0px;
+        padding: 0px 10px;
+
+        background-color: transparent;
+
+        .left, .right {
+            overflow: hidden;
+            background-color: transparent;
+            a {
+                // 设置 display， line-height, padding 使文字垂直居中
+                display: inline-block;
+                line-height: 20px;
+                padding: 16px 0px;
+                margin-right: 10px;
+                text-decoration: none;
+                color: white;
+                background-color: transparent;
+            }
+        }
+
+    }
+}
