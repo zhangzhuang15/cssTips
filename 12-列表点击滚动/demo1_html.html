@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="left">
+      <ul>
+        <li class="li">1</li>
+        <li class="li">2</li>
+        <li class="li">3</li>
+        <li class="li">1</li>
+        <li class="li">2</li>
+        <li class="li">3</li>
+      </ul>
+    </div>
+    <div class="right"></div>
+</div>
+<style>
+.container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background: white;
+    border: 1px solid lightgrey;
+    display: flex;
+  }
+  .left, .right {
+    width: 50%;
+    height: 100%;
+    border: 1px solid grey;
+    border-bottom: none;
+    overflow-y: scroll;
+  }
+  ul{
+    margin: 0px;
+    padding: 0px;
+    height: 300px;
+  }
+  li {
+    list-style: none;
+    text-align: center;
+    padding: 3px 0;
+    cursor: pointer;
+  }
+  input{
+    display:none;
+  }
+  li:hover {
+    background: lightgrey;
+  }
+  </style>
+  <script>
+      var liList = document.querySelectorAll(".left > ul >li");
+var p = 0;
+for (let i = 0 ; i < liList.length; i++){
+  liList[i].addEventListener("click", function(e){
+    console.log(e)
+    e.target.style.backgroundColor = "lightblue";
+    for (let j = 0; j < liList.length; j++) {
+      if(i !== j) liList[j].style.backgroundColor = null;
+    }
+    e.target.parentElement.parentElement.scrollTop = e.target.offsetTop;
+  });
+}
+  </script>

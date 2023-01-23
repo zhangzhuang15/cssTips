@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- 目前更多人使用的是css内置的grid布局，但是在该grid布局并没有被css支持的时候，又应该如何实现呢？
+     你将在本文件找到答案。
+-->
+<html>
+    <head>
+        <title>legacy method for building a grid layout</title>
+        <meta charset="utf-8">
+        <style>
+            * {
+                box-sizing: border-box;
+              }
+
+          body {
+                width: 90%;
+                max-width: 980px;
+                margin: 0 auto; /* 设置水平居中 */
+              }
+
+         .wrapper {
+                /* padding-right: 20px;        /* wrapper实际内部content box空间长度为 980px-20px = 960px */
+                padding-right: 2.08333333%; /* 上一条不是自适应的，这里使用百分数，改成自适应的 */
+              }
+         .row {
+                clear: both;
+              }
+         .col {
+                float: left;
+                /* margin-left: 20px; */
+                margin-left: 2.08333333%;
+                /* width: 60px;    /* 1列占据60px , 算上间距20px，一列总共占据80px ， 960px/80px = 12， 则一行最多12列 */
+                width: 6.25%; /*  60px/960px = 0.0625   */
+                background: rgb(255, 150, 150);
+              }
+        
+         /* Two column widths (120px) plus one gutter width (20px) */
+         /* Two column widths (12.5%) plus one gutter width (2.08333333%)*/
+         .col.span2 { width: 14.58333333%; }  
+        /* Three column widths (180px) plus two gutter widths (40px) */
+        /* Three column widths (18.75%) plus two gutter width (4.16666666%)*/
+        .col.span3 { width: 18.75%; }
+        /* And so on... */
+        .col.span4 { width: calc((6.25%*4) + (2.08333333%*3)); }
+        .col.span5 { width: 39.58333332%; }
+        .col.span6 { width: 47.91666665%; }
+        .col.span7 { width: 56.24999998%; }
+        .col.span8 { width: 64.58333331%; }
+        .col.span9 { width: 72.91666664%; }
+        .col.span10 { width: 81.24999997%; }
+        .col.span11 { width: 89.5833333%; }
+        .col.span12 { width: 97.91666663%; }
+        
+        .offset-by-one {
+                         margin-left: calc(6.25% + (2.08333333%*2));
+                       }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="row">
+                <div class="col">1</div>
+                <div class="col">2</div>
+                <div class="col">3</div>
+                <div class="col">4</div>
+                <div class="col">5</div>
+                <div class="col">6</div>
+                <div class="col">7</div>
+                <div class="col">8</div>
+                <div class="col">9</div>
+                <div class="col">10</div>
+                <div class="col">11</div>
+                <div class="col">12</div>
+            </div>
+            <div class="row">
+                <div class="col span1">13</div>
+                <div class="col span5 offset-by-one">14</div>
+                <div class="col span3">15</div>
+                <div class="col span2">16</div>
+            </div>
+        </div>
+  </body> 
+  </html>

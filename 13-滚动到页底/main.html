@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滚动到底部</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .container {
+            position: relative;
+            width: 300px;
+            height: 600px;
+            border: 1px dashed lightcoral;
+            overflow: scroll;
+            overscroll-behavior-y: contain;
+        }
+        .box {
+            width: 100px;
+            height: 200px;
+            margin: 30px 0px;
+            background-color: lightblue;
+            border-radius: 3px;
+        }
+        button {
+            position: absolute;
+            left: 320px;
+            top: 20px;
+            border: 1px dotted white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box" id="cta">look at me</div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <button id="btn">滚动到底部</button>
+   <script>
+        const cta = document.getElementById("cta")
+
+        const btn = document.getElementById("btn")
+        btn.addEventListener("click", () => {
+            if (btn.innerText === "滚动到底部") {
+                // NOTICE: cta没有发生滚动，是 cta 的父容器发生了滚动
+                // end 的意思是 父容器滚动，使得 cta 位于父容器的底部，
+                // 并且可以被人看到。
+                cta.scrollIntoView({ behavior:"smooth", block:"end"})
+                btn.innerText = "滚动到顶部"
+            } else {
+                cta.scrollIntoView({ behavior:"smooth", block:"start"})
+                btn.innerText = "滚动到底部"
+            }
+        })
+   </script>
+</body>
+</html>
