@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 20px;
+            height: 20px;
+            -webkit-mask-box-image: url('./logo.png');
+            background-color: aquamarine;
+        }
+
+        .container {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            overflow: hidden;
+        }
+
+        .item {
+            position: absolute;
+            top: 0;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            background: url('./logo.png') no-repeat center;
+            background-size: contain;
+            filter: drop-shadow(20px 0px lightblue);
+        }
+    </style>
+</head>
+<body>
+    <!-- 方法一
+        组合使用 -webkit-mask-box-image 和 background-color 就可以改变icon颜色，
+        前者用于设置 icon 图片，后者指定 icon 颜色。
+        动态修改后着就可以实现 icon 颜色变换。
+
+        适用于 谷歌浏览器、safari浏览器、edge浏览器。
+    -->
+    <div class="box"></div>
+
+
+    <!-- 方法二
+        这个方法使用了 drop-shadow 实现，用drop-shadow 在原图片右侧20px处制造一个
+        lightblue颜色的影子，之后向左移动 20px，因为container容器是overflow:hidden，
+        原图片会被隐藏，影子留下来显示。
+
+        谷歌浏览器上表现完美；
+        safari浏览器只会显示一部分影子，因为它的渲染是根据可视区的原图片大小定的，发生移动后，
+        可视区原图片如果只露出一部分，那么影子也会只露出对应的一部分。
+    -->
+    <div class="container">
+        <div class="item"></div>
+    </div>
+</body>
+</html>

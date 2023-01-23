@@ -1,0 +1,31 @@
+.wrap {
+  height: 400px;
+}
+
+.middle {
+  float: left;
+  background-color: lightblue;
+  height: 100%;
+  width: 100%;
+}
+
+.middle .box {
+  margin: 0 100px;
+}
+
+.left {
+  float: left;
+  width: 100px;
+  height: 100%;
+  margin-left: -100%;
+  background-color: lightcoral;
+}
+
+.right {
+  float: left;
+  width: 100px;
+  height: 100%;
+  margin-left: -100px;
+  background-color: lightcyan;
+}
+/*# sourceMappingURL=main.css.map */

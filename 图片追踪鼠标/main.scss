@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700");
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120vh;
+  background: #121212;
+}
+
+.menu-hover-image {
+  position: relative;
+  width: 56rem;
+  margin-bottom: 12rem;
+  font-family: Lora, serif;
+  list-style-type: none;
+
+  .cursor {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: -1;
+    width: 600px;
+    height: 400px;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    background-position: 50% 50%;
+    background-size: cover;
+    opacity: 0;
+  }
+
+  .menu-item {
+    $menu-image-urls: url('./image1.jpg'),
+      url('./image2.jpg'),
+      url('./image3.jpg'),
+      url('./image4.jpg');
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}):hover~.cursor {
+        background-image: nth($menu-image-urls, $i);
+      }
+    }
+
+    a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+      color: white;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      mix-blend-mode: difference;
+      transform: translate3d(0, 0, 0);  // just make "mix-blend-mode" work properly.
+    }
+  }
+}

@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+body,
+html {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@property --per {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 22%;
+}
+
+.g-aurora {
+  position: relative;
+  margin: auto;
+  width: 340px;
+  height: 180px;
+  border: 2px solid #5b595b;
+  overflow: hidden;
+}
+
+.g-aurora::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: -10px;
+  right: -20px;
+  bottom: -20px;
+  background: linear-gradient(-30deg, #a4d7e0, rgba(164, 215, 224, 0.9) 48%, transparent 62%);
+  -webkit-filter: url(#smoke);
+          filter: url(#smoke);
+}
+
+.right::before {
+  background: linear-gradient(-30deg, #ff0020, rgba(229, 23, 49, 0.9) 48%, transparent 62%);
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+.breathe::after {
+  content: "THESHY";
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.breathe::before {
+  background: linear-gradient(-45deg, #ff0020, rgba(229, 23, 49, 0.9) var(--per), transparent calc(var(--per) + 8%));
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+  -webkit-animation: change 2s infinite ease-out;
+          animation: change 2s infinite ease-out;
+}
+
+@-webkit-keyframes change {
+  50% {
+    --per: 18%;
+  }
+}
+
+@keyframes change {
+  50% {
+    --per: 18%;
+  }
+}
+
+svg {
+  width: 0;
+  height: 0;
+}
+
+.left img {
+  width: 150%;
+  height: 150%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: -150px center;
+     object-position: -150px center;
+}
+
+.right img {
+  width: 120%;
+  height: 120%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: -30px center;
+     object-position: -30px center;
+}
+/*# sourceMappingURL=main.css.map */

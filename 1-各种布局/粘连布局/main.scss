@@ -1,0 +1,30 @@
+html, body {
+    height: 100%;
+}
+
+.wrap {
+    // 占据整个可视高度
+    min-height: 100%;
+    // 文字水平居中
+    text-align: center;
+    // 当高度变小时， box可能会越过wrap的高度，此时应该隐藏掉box超出来的部分
+    overflow: hidden;
+  
+    .box {
+        // 底部预留出50px的高度
+        padding-bottom: 50px;
+        background-color: lightcoral;
+    }
+}
+
+.foot {
+    // 设置height line-height为一样的数值，文字就会垂直居中；
+    // 设置 text-align 文字就会水平居中；
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+
+    // 由于 wrap 已经占据100%的高度了，所以 foot 要利用 margin-top 把自己往上拔
+    margin-top: -50px;
+    background-color: lightblue;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container0 {
+            line-height: 30px;
+            width: 100px;
+            border: 1px solid hotpink;
+        }
+        .container1, .container2, .container3 {
+            width: 100px;
+            border: 1px solid black;
+            font-size: 15px;
+        }
+
+        .container1 {
+            height: 30px;
+            line-height: 10px;
+        }
+
+        .container2 {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .container3 {
+            height: 30px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+            在不指定 div 的height时，
+            指定 文字 和 line-height 可以将 div 撑开，间接赋予 div height属性值。
+            
+            当设置 div 的height后，
+            指定 font-size 或 line-height 将不会影响到 div 的高度，内容如果超过div的height，就会露在外边。
+
+            height和line-height的联系：
+            在 box-sizing: border-box, height 设置 div 的 border区、padding区、content区的总高度；
+            在 box-sizing: content-box， height 设置 div 的 content区高度。
+            所以，height只是设置了box模型中的区域高度，并没有设置 区域内的内容的高度。
+
+            line-height 设置的就是内容的高度。
+            由此可以推知，
+            在 height > line-height 的时候，存储内容的区域比内容本身还要高，那么内容就会在区域中偏上；
+            在 height == line-height 的时候，存储内容的区域刚好等于内容本身高度，因此内容表现为在区域内居中；
+            在 height < line-height 的时候，存储内容的区域比内容自身要矮，那么内容就会在区域中偏下；
+
+            line-height 本身是规定多行文字的间距，这不过在单行文字的时候，具有文字垂直居中控制的效果，
+            当 line-height 比 font-size 小，如果是多行文字，你不会很奇怪；
+            可如果发生在单行，你就可能会有点困惑了。
+            别怕，按照定义去理解它：多行文字的间距
+    -->
+    <div class="container0">你好</div>
+    <div class="container1">你好</div>
+    <div class="container2">你好</div>
+    <div class="container3">你好</div>
+</body>
+</html>

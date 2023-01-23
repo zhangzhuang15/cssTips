@@ -1,0 +1,37 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+}
+
+.wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 200px;
+  height: 80%;
+  margin: 0 auto 0 100px;
+}
+
+.wrap .top {
+  height: 100px;
+  background-color: lightcoral;
+}
+
+.wrap .center {
+  height: calc(100% - 200px);
+  background-color: lightblue;
+}
+
+.wrap .bottom {
+  height: 100px;
+  background-color: lightcyan;
+}
+/*# sourceMappingURL=main.css.map */

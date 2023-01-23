@@ -1,0 +1,72 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background: black;
+}
+
+.card {
+  width: 30em;
+  height: 30em;
+  padding: 10em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: black;
+  -webkit-filter: blur(15px) contrast(30);
+          filter: blur(15px) contrast(30);
+}
+
+.card .snow {
+  position: relative;
+  width: 3em;
+  height: 3em;
+  border-radius: 100%;
+}
+
+.card .snow::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  width: inherit;
+  height: inherit;
+  background: white;
+  -webkit-transition: 30s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: 30s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.card .snow:hover::after {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  color: white;
+  font-family: Lato, sans-serif;
+  font-size: 4em;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  -webkit-transform: translate(-47%, -160%);
+          transform: translate(-47%, -160%);
+  pointer-events: none;
+  -webkit-filter: blur(1px) contrast(20);
+          filter: blur(1px) contrast(20);
+}
+/*# sourceMappingURL=main.css.map */

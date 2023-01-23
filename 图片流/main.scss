@@ -1,0 +1,48 @@
+body, html {
+    padding: 0px;
+    margin: 0px;
+    outline: 0;
+}
+
+.container {
+    position: relative;
+    max-height: 400px;
+    padding: 0px 5px;
+    overflow-y: auto;
+    // 设置滚动条宽度
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    // 设置滚动条轨道颜色
+    &::-webkit-scrollbar-track-piece {
+        background-color: cyan;
+        border-radius: 10px;
+    }
+    // 设置滚动条滑块
+    &::-webkit-scrollbar-thumb {
+        background-color: lightcoral;
+        border-radius: 4px;
+    }
+    .image-wall {
+        position: relative;
+        list-style: none;
+        padding: 0px;
+        .item {
+            position: relative;
+            float: left;
+            width: 274px;
+            height: 200px;
+            padding: 8px;
+            background-color: lightblue;
+            background-clip: content-box;
+        }
+    }
+
+    .image-wall::after{
+        content: "";
+        display: block;
+        clear: both;
+        height: 0px;
+        overflow: hidden;
+    }
+}

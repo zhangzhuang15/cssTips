@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>默认情况下的flex容器</title>
+    <style>
+        .container {
+            display: flex;
+            position: relative;
+            background-color:aquamarine;
+        }
+
+        .box {
+            background-color: black;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <section>容器不设置宽度和高度; 子元素不设置宽度和高度</section>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+
+    <br>
+    <br>
+
+    <section>容器不设置宽度, 设置高度; 子元素不设置宽度和高度</section>
+    <div class="container" style="height: 100px">
+        <div class="box"></div>
+    </div>
+
+    <br>
+    <br>
+
+    <section>容器不设置宽度, 设置高度; 子元素不设置宽度, 设置高度大于容器</section>
+    <div class="container" style="height: 100px">
+        <div class="box" style="height: 120px"></div>
+    </div>
+
+    <br>
+    <br>
+
+    <section>容器不设置宽度, 设置高度；子元素不设置宽度，设置高度小于容器</section>
+    <div class="container" style="height: 100px">
+        <div class="box" style="height: 40px"></div>
+    </div>
+
+    <br>
+    <br>
+
+    <section>容器不设置宽度和高度；子元素不设置宽度，设置高度</section>
+    <div class="container">
+        <div class="box" style="height: 100px;"></div>
+    </div>
+
+    <br>
+    <br>
+
+    <section>容器不设置宽度和高度；子元素设置宽度，设置高度，一个大，一个小</section>
+    <div class="container">
+        <div class="box" style="width: 20px;height: 200px;"></div>
+        <div class="box" style="width: 20px;height: 100px;"></div>
+    </div>
+
+    <br>
+    <br>
+
+    <section>容器设置宽度和高度；子元素不设置高度，设置宽度大于容器</section>
+    <div class="container" style="width: 200px; height: 100px">
+        <div class="box" style="width: 210px"></div>
+        <div class="box" style="width: 240px"></div>
+    </div>
+
+    <br>
+    <br>
+
+    <section>容器设置宽度和高度；子元素一个设置高度，一个不设置，都设置宽度大于容器</section>
+    <div class="container" style="width: 200px; height: 100px">
+        <div class="box" style="width: 210px; height: 80px"></div>
+        <div class="box" style="width: 240px"></div>
+    </div>
+
+
+    <br>
+    <br>
+
+    <section>容器设置宽度和高度； 子元素设置高度小于容器，设置宽度大于容器</section>
+    <div class="container" style="width: 200px; height: 100px">
+        <div class="box" style="width: 210px; height: 60px"></div>
+        <div class="box" style="width: 240px; height: 30px"></div>
+    </div>
+
+    <br>
+    <br>
+    <section>容器设置宽度和高度； 子元素设置高度小于容器，一个设置宽度小于容器，一个不设置</section>
+    <div class="container" style="width: 200px; height: 100px">
+        <div class="box" style="width: 110px; height: 60px"></div>
+        <div class="box" style="height: 30px"></div>
+    </div>
+
+    <br>
+    <br>
+
+    <section>容器设置宽度和高度； 子元素设置高度小于容器，设置宽度大于容器, 子元素无法收缩</section>
+    <div class="container" style="width: 200px; height: 100px">
+        <div class="box" style="flex: none; width: 210px; height: 60px"></div>
+        <div class="box" style="flex: none; width: 240px; height: 30px"></div>
+    </div>
+    
+    <br>
+    <br>
+
+    <section>容器设置宽度和高度; 子元素不设置宽度, 设置高度小于容器，子元素的子节点设置宽度和高度</section>
+    <div class="container" style="width: 200px; height: 100px">
+        <div class="box" style="height: 80px;">
+            <div style="width: 140px; height: 20px; background-color: beige;"></div>
+        </div>
+        <div class="box" style="height: 60px">
+            <div style="width: 140px; height: 20px; background-color: cadetblue;"></div>
+        </div>
+    </div>
+    
+</body>
+</html>

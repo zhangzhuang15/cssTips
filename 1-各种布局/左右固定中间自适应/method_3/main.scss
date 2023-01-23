@@ -1,0 +1,20 @@
+body {
+    display: flex;
+
+    height: 80vh;
+    margin: 0px;
+
+}
+
+.wrap {
+    position: relative;
+    // .wrap的父元素表现为 inline， flex, inline-block 时，width默认值是 min-content；
+    // .wrap的父元素表现为 block 时， width默认值就是父元素的width值；
+    width: 100%;    
+    .box {
+        position: absolute;
+        left: 100px;
+        right: 200px;
+        background-color: lightblue;
+    }
+}

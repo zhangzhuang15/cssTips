@@ -1,0 +1,70 @@
+@import url("./font.css");
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(16, 16, 16, 0.8)), to(rgba(16, 16, 16, 0.8))), url("./background.jpg");
+  background-image: linear-gradient(rgba(16, 16, 16, 0.8), rgba(16, 16, 16, 0.8)), url("./background.jpg");
+  background-size: cover;
+}
+
+p {
+  margin: 0 9em;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.landIn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  line-height: 1.8;
+  color: white;
+  font-family: Lora, serif;
+  white-space: pre;
+}
+
+.landIn span {
+  -webkit-animation: landIn 0.8s ease-out both;
+          animation: landIn 0.8s ease-out both;
+}
+
+@-webkit-keyframes landIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-20%);
+            transform: translateY(-20%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes landIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-20%);
+            transform: translateY(-20%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+/*# sourceMappingURL=main.css.map */

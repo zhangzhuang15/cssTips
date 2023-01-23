@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 10px 0px;
+        }
+
+        .container1 {
+            text-align: right;
+        }
+
+        .container2 {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+        }
+
+        .container3 {
+            line-height: 100px;
+        }
+
+        .container4 span {
+            vertical-align:sub;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        line-height
+
+        display: flex
+        align-items
+        justify-content
+
+        text-align
+
+        vertical-align(用在 inline 元素身上，位置相对同级的文字元素而言)
+    -->
+    <div class="container1">
+        <span>你好</span>
+    </div>    
+    <div class="container2">
+        <span>你好</span>
+    </div>  
+    <div class="container3">
+        <span>你好</span>
+    </div>  
+    <div class="container4">
+        谁
+        <span>你好</span>
+    </div>  
+</body>
+</html>

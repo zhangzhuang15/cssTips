@@ -1,0 +1,80 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin: 0;
+    background: #e9b59f;
+}
+
+.two .shape {
+    animation: two 5s infinite ease-out;
+    transform-origin: 50% 7em;           /* 设置变换参考的原点 */
+}
+
+.two .surface {
+    background: #000;
+    width: 8em;
+    height: 1em;
+    position: absolute;
+    top: calc(50% + 4em);
+    left: calc(50% - 3em);
+}
+
+
+/* 动画的每一帧的属性，如果没有明确设置，则按照元素原本的属性取值 */
+@keyframes two {
+    0%, 15% {
+        opacity: 0;
+        transform: none;
+    }
+
+    15%, 25% {
+        opacity: 1;           /* 注释后，元素在动画中依旧逐步可见，但不能保证元素在这一帧是立即可见的 */
+        transform: none;
+        animation-timing-function: cubic-bezier(0.5, 0.05, 0.91, 0.47);
+    }
+
+    28%, 38% {
+        transform: translateX(-2em);
+    }
+
+    40%, 45% {
+        transform: translateX(-4em);
+    }
+
+    50%, 52% {
+        transform: translateX(-4em) rotateZ(-20deg); /* 逆时针旋转 20度 */
+    }
+
+    70%, 75% {
+        transform: translateX(-4em) rotateZ(-10deg);
+    }
+
+    78% {
+        transform: translateX(-4em) rotateZ(-24deg);
+        opacity: 1;
+    }
+
+    86%, 100% {
+        transform: translateX(-6em) translateY(4em) rotateZ(-90deg);
+        opacity: 0;
+    }
+}
+
+.principle {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.shape {
+    background: #2d97db;
+    border: 1em solid #fff;
+    width: 4em;
+    height: 4em;
+    position: absolute;
+    top: calc(50% - 2em);
+    left: calc(50% - 2em);
+    opacity: 1;
+}

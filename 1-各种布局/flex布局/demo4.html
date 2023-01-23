@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 800px;
+            height: 50px;
+            display: flex;
+            border: 1px solid red;
+            gap: 5px;
+        }
+
+        .box1, .box2, .box3 {
+            width: 100px;
+            background-color: aquamarine;
+        }
+
+        .box2 {
+            /* 关键的地方*/
+            margin-left: auto;
+        }
+
+        .box3 {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2>实现一个布局</h2>
+        <p>container - 定宽 800px</p>
+        <p>box1 - 定宽100px，居左</p>
+        <p>box2 - 定宽100px，居右，紧挨着box3</p>
+        <p>box3 - 定宽100px，居最右侧, 和box2保持5px间距</p>
+    </section>
+    <div class="container">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+    
+</body>
+</html>

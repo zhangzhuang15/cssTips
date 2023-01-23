@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    width: 100vw;
+    height: 80vh;
+}
+
+.wrap {
+    width: 100%;
+    
+    .left {
+        float: left;
+        width: 200px;
+        background-color: lightblue;
+    }
+
+    .right {
+        margin-left: 200px;
+        background-color: lightcoral;
+    }
+    
+}

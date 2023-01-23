@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700");
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #222;
+}
+
+.slide-bar {
+  position: relative;
+  color: transparent;  // 文字最开始是透明色
+  animation: fill-text-white 2s 1.6s forwards; // 动画终止后，文字颜色变成白色
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #35b9f1;
+    transform: scaleX(0);   // 滚动条收窄为 0
+    transform-origin: left; // 滚动条收窄到左边
+    animation: slide-in-out 2s cubic-bezier(0.75, 0, 0, 1) forwards;
+  }
+}
+
+@keyframes slide-in-out {
+  50% {
+    transform: scaleX(1); // 滚动条伸长到原始长度，视觉上就是从左滑向右
+    transform-origin: left;
+  }
+
+  50.1% {
+    transform-origin: right; // 转换的方向由左边改成了右边，之后再次收窄的时候，就会向右收窄
+  }
+
+  100% {
+    transform: scaleX(0); // 向右收窄
+    transform-origin: right;
+  }
+}
+
+@keyframes fill-text-white {
+  to {
+    color: white;
+  }
+}
+
+header {
+  .title,
+  .subtitle {
+    width: 250px;
+    height: 30px;
+  }
+
+  .title {
+    margin: 0;
+    font-family: Lora, serif;
+    font-size: 32px;
+    line-height: 30px;
+
+    &::before {
+      background: #FF4081;
+    }
+  }
+
+  .subtitle {
+    margin: 10px 0 0 0;
+    font-family: Lato, sans-serif;
+    font-size: 12px;
+    line-height: 30px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    animation-delay: 3.2s;
+
+    &::before {
+      background: #03A9F4;
+      animation-delay: 2s;
+    }
+  }
+}
+

@@ -1,0 +1,84 @@
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.flex {
+    display: flex;
+}
+.gauge {
+    margin: 1rem;
+    --gauge-width: 5.625rem;
+    --gauge-percentage: calc(var(--gauge-value) / var(--gauge-max-value) * 100%);
+    --gauge-bg: white;
+    --gauge-color: black;
+    --primary-color: rgb(78, 192, 233);
+    --primary-color-lighter: rgb(169, 224, 244);
+    --secondary-color: rgb(205, 210, 218);
+    --secondary-color-lighter: rgb(231, 234, 238);
+    --success-color: rgb(74, 207, 174);
+    --success-color-lighter: rgb(154, 228, 210);
+    --info-color: rgb(95, 156, 236);
+    --info-color-lighter: rgb(187, 213, 247);
+    --warning-color: rgb(255, 206, 82);
+    --warning-color-lighter: rgb(255, 235, 184);
+    --danger-color: rgb(237, 84, 100);
+    --danger-color-lighter: rgb(247, 177, 184);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--gauge-width);
+    height: var(--gauge-width);
+    border-radius: 50%;
+    position: relative;
+    color: var(--gauge-color);
+    background: conic-gradient(var(--gauge-circle-color) var(--gauge-percentage),var(--gauge-circle-color-lighter) 0); 
+    counter-reset: value var(--gauge-value);
+
+    &.gauge-primary {
+        --gauge-circle-color: var(--primary-color);
+        --gauge-circle-color-lighter: var(--primary-color-lighter);
+    }
+    &.gauge-secondary {
+        --gauge-circle-color: var(--secondary-color);
+        --gauge-circle-color-lighter: var(--secondary-color-lighter);
+    }
+    &.gauge-success {
+        --gauge-circle-color: var(--success-color);
+        --gauge-circle-color-lighter: var(--success-color-lighter);
+    }
+    &.gauge-info {
+        --gauge-circle-color: var(--info-color);
+        --gauge-circle-color-lighter: var(--info-color-lighter);
+    }
+    &.gauge-warning {
+        --gauge-circle-color: var(--warning-color);
+        --gauge-circle-color-lighter: var(--warning-color-lighter);
+    }
+    &.gauge-danger {
+        --gauge-circle-color: var(--danger-color);
+        --gauge-circle-color-lighter: var(--danger-color-lighter);
+    }
+    &::before {
+        position: absolute;
+        top: auto;
+        left: auto;
+        width: 60%;             // 控制圆环的宽度
+        height: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        content: counter(value);
+        background: var(--gauge-bg);
+        border-radius: inherit;     
+    }
+
+    &:nth-last-child(1) {      // 最后一个改成饼状图
+        &::before{
+            width: 0%;
+            height: 0%;
+        }
+    }
+  }

@@ -1,0 +1,60 @@
+html, body {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+@property  --offset {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 5px;
+}
+
+@property --deg {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 1deg;
+}
+
+    
+@keyframes move {
+    to {
+         --offset: 15px;
+    }
+        
+}
+
+@keyframes rotating {
+    to {
+        --deg: 361deg;
+    }
+    
+}
+
+.picture {
+    position: relative;
+    margin: auto;
+
+    line-height: 1.5;
+    font-size: 128px;
+    font-weight: bold;
+    text-align: justify;
+    cursor: pointer;
+         
+    color: #000;
+
+    &:hover {
+        color: transparent;
+        background-image: linear-gradient(var(--deg), red, white, blue, yellow, pink, cyan),
+                          repeating-radial-gradient(circle at 0 0, 
+                                                  #000 calc(var(--offset) - 5px), 
+                                                  #000 var(--offset), 
+                                                  #fff var(--offset),
+                                                  #fff calc(var(--offset) + 5px));
+                    
+        background-clip: text;
+        -webkit-background-clip: text;
+        background-blend-mode: screen;
+        animation: move .5s linear infinite, rotating 20s linear infinite;
+    }
+}    

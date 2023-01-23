@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>mask遮罩技术demo</title>
+    </head>
+    <body>
+        <div style="width: 200px;
+                    height: 200px;
+                    background: lightblue;"
+            id="main">
+        </div>
+        <input type="checkbox" />应用mask
+        <!-- 选中checkbox， 浅蓝色方框中间就会出现一个圆洞 -->
+        <script>
+            const item = document.getElementById('main')
+            const button = document.querySelector('input[type="checkbox"]')
+
+            button.addEventListener("click", e => {
+                if(e.target.checked) {
+                    // item中心作为圆心，半径为30px的圆形区域是 transparent，这部分的item背景会消失，看不到浅蓝色；
+                    // 半径30px开外的地方是 white， 这部分的item背景照常显示。
+                    item.style.setProperty('-webkit-mask', 'radial-gradient(circle at 50% 50%, transparent 30px, white 30px)')
+                } else {
+                    item.style.removeProperty('-webkit-mask')
+                }
+            })
+        </script>
+    </body>
+</html>

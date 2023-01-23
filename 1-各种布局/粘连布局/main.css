@@ -1,0 +1,23 @@
+html, body {
+  height: 100%;
+}
+
+.wrap {
+  min-height: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.wrap .box {
+  padding-bottom: 50px;
+  background-color: lightcoral;
+}
+
+.foot {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin-top: -50px;
+  background-color: lightblue;
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    
+    width: 100vw;
+    height: 80vh;
+}
+
+.wrap {
+
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+
+    .left {
+        width: 200px;
+        background-color: lightcoral;
+    }
+    
+    .right {
+        flex-grow: 1;
+        flex-shrink: 1;
+        background-color: lightblue;
+    }
+}

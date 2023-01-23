@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .container {
+            width: 300px;
+            height: 600px;
+            border: 1px solid red;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            flex: none;
+            height: 100px;
+            background-color: aquamarine;
+        }
+
+        .content {
+            /* 这里是关键 ，和 demo2.html 有区别 */
+            flex: initial;
+            overflow: auto;
+            background-color: lightblue;
+        }
+
+        .text {
+            height: 500px;
+            padding: 15px;
+            background-color: lightpink;
+            background-clip: content-box;
+        }
+    </style>
+</head>
+<body>
+    <!-- 实现一个布局 
+         container - 定高 600px
+         title - 定高 100px
+         content - 根据内容自适应高度；不得从容器溢出；适时滚动
+    -->
+    <section>
+        <h2>实现一个布局</h2>
+        <p>container - 定高 600px</p>
+        <p>title - 定高 100px</p>
+        <p>content - 根据内容自适应高度；不得从容器溢出；适时滚动</p>
+    </section>
+
+    <div class="container">
+        <div class="title"></div>
+        <div class="content">
+            <div class="text"></div>
+        </div>
+    </div>
+    
+</body>
+</html>

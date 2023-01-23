@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    align-items: center;
+
+    height: 60vh;
+    width: 100vw;
+
+    margin: 0px;
+}
+
+.wrap {
+    display: flex;
+
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.left {
+    width: 200px;
+    background-color: lightcoral;
+}
+
+.right {
+    width: 100px;
+    background-color: lightcyan;
+}
+
+.middle {
+    flex-grow: 1;
+    flex-shrink: 1;
+    
+    background-color: lightblue;
+}

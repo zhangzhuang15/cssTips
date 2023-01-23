@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  @include center;
+  height: 100vh;
+  font-family: Lato, sans-serif;
+  background: #ECEFFC;
+}
+
+.navtab {
+  --navtab-width: 600px;
+  --navtab-item-width: calc(var(--navtab-width) / 4 - 20px);
+  --navtab-overlay-width: calc(var(--navtab-item-width) + 80px);
+  --active-index: 0;
+
+  position: relative;
+  width: var(--navtab-width);
+  height: 150px;
+  background: white;
+  border: 1em solid white;
+  // https://9elements.github.io/fancy-border-radius/full-control.html#15.5.15.15-50.95.50.85-150.600
+  border-radius: 5% 5% 15% 15% / 15% 15% 50% 50%;
+  overflow: hidden;
+
+  ul {
+    @include center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;         // 删除无序列表的 · 号
+
+    .navtab-item {
+      @include center;
+      z-index: 2;
+      flex-direction: column;          // 纵向排序
+      width: var(--navtab-item-width);
+      height: 100%;
+      color: #0288d1;
+      cursor: pointer;
+      transition: 0.5s ease;
+
+      svg {
+        transition: 0.5s ease;
+      }
+
+      span {
+        font-size: 20px;
+        user-select: none;       // 文字处将不会有光标闪烁啦
+        opacity: 0;
+        transition: 0.5s ease;
+      }
+
+      &.active {
+        width: var(--navtab-overlay-width); // 蓝色衬底加宽
+
+        svg {
+          transform: translateY(-10px);     // 图标上浮
+        }
+
+        span {
+          opacity: 1;                       // 文字可见
+        }
+      }
+    }
+  }
+
+  &::after {                                // 浅蓝色衬底
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--navtab-overlay-width);
+    background: #b3e5fc;
+    border-radius: 20px;
+    transform: translateX(calc(var(--navtab-item-width) * var(--active-index)));   // main.js 会修改 --active-index
+    transition: 0.5s ease;
+  }
+}

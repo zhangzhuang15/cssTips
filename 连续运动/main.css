@@ -1,0 +1,58 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin: 0;
+    background: #e9b59f;
+}
+
+.four .shape.a {
+    animation: four 6s infinite cubic-bezier(0.57, -0.5, 0.43, 1.53);
+    left: calc(50% - 8em);
+}
+
+.four .shape.b {
+    animation: four 6s infinite steps(1);
+    left: calc(50% + 8em);
+}
+
+@keyframes four {
+    0%, 10% {
+        transform: none;
+    }
+
+    26%, 30% {
+        transform: rotateZ(-45deg) scale(1.25);
+    }
+
+    40% {
+        transform: rotateZ(-45deg) translate(2em, -2em) scale(1.8); /* 由于扩大，方框的底边会下沉，因此使用 translate 上提 */
+    }
+
+    50%, 75% {
+        transform: rotateZ(-45deg) scale(1.1);
+    }
+
+    90%, 100% {
+        transform: none;
+    }
+}
+
+.principle {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.shape {
+    background: #2d97db;
+    border: 1em solid #fff;
+    width: 4em;
+    height: 4em;
+    position: absolute;
+    top: calc(50% - 2em);
+    left: calc(50% - 2em);
+    opacity: 1;
+}
+

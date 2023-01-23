@@ -1,0 +1,30 @@
+body {
+    display: flex;
+
+    height: 100vh;
+}
+
+.wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    
+    width: 200px;
+    height: 80%;
+
+    margin: 0 auto 0 100px;    // 左边固定100px， 右侧自适应
+   // margin: 0 auto;          // 居中
+
+    .top {
+        height: 100px;
+        background-color: lightcoral;
+    }
+    .center {
+        height: calc(100% - 200px);
+        background-color: lightblue;
+    }
+    .bottom {
+        height: 100px;
+        background-color: lightcyan;
+    }
+}

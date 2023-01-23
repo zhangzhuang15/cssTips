@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #1A1E23;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0 75px 10px 30px;
+  background: #162740;
+  border: transparent;
+
+  .todo-list__title {
+    padding: 3px 6px;
+    color: #f1faee;
+    background-color: #264456;
+  }
+
+  .todo-list__label {
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+    font-size: 24px;
+    font-family: Lato, sans-serif;
+    color: #f1faee;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+      opacity: 0;
+      appearance: none;
+
+      & + .check {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        border: 2px solid #f1faee;
+        transition: 0.2s;
+      }
+
+      &:checked + .check {
+        width: 25px;
+        height: 15px;
+        border-top: transparent;
+        border-right: transparent;
+        transform: rotate(-45deg);     // 逆时针旋转 45 度
+      }
+
+      & ~ span {
+        position: relative;
+        left: 40px;
+        white-space: nowrap;
+        transition: 0.5s;
+
+        &::before {                  // 白色的删除线
+          position: absolute;
+          content: "";
+          top: 50%;                  // 删除线居中
+          left: 0;
+          width: 100%;
+          height: 1px;               // 删除线高度 1px
+          background: #f1faee;
+          transform: scaleX(0);      // 刚开始长度为 0
+          transform-origin: right;   // 取消选中情况下，以右边为标准线，收窄，视觉上就是一条线从左收窄到右侧
+          transition: transform 0.5s;
+        }
+      }
+
+      &:checked ~ span {
+        color: #585b57;
+
+        &::before {
+          transform: scaleX(1);      // 选中状态下，以左边为标准线，拉宽，视觉效果就是自左向右划出一条线
+          transform-origin: left;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container1 {
+            width: 500px;
+            height: 500px;
+            border: 1px solid lightblue;
+            /* Safari & Google */
+            transform: rotate(0);
+            /* will-change: perspective; */
+            /* will-change: transform; */
+
+            /* Google */
+            /* perspective: 0; */
+            /* filter: opacity(1); */
+            /* contain: paint; */
+            /* backdrop-filter: blur(0); */
+            /* -webkit-backdrop-filter: blur(0); */
+        }
+        .box1 {
+            position: fixed;
+            width: 50%;
+            height: 100px;
+            border: 1px solid lightcoral;
+        }
+
+
+        .container2 {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            
+        }
+        .box2 {
+            position: absolute;
+            width: 50%;
+            height: 100px;
+            border: 1px solid lightcoral;
+        }
+
+
+        .container3 {
+            width: 300px;
+            height: 300px;
+            border: 1px solid lightgreen;
+        }
+        .box3 {
+            /* position: relative; */
+            width: 50%;
+            height: 200px;
+            border: 1px solid lightsalmon;
+        }
+    </style>
+</head>
+<body>
+    <!-- width 为百分比时，是相对于 元素的 containing block 区域的宽度 -->
+
+    <!-- position: fixed 的元素，
+
+        其 containing block有几种情况：
+        优先级较高的：
+            1、transform, perspective 属性值非none 的祖先元素的 padding box;
+            2、will-change属性值为 perspective或transform 的 祖先元素的padding box；
+            3、filter 属性值非none 的祖先元素的padding box；
+            4、backdrop-filter属性值非none的祖先元素的padding box；
+            5、contain属性值为paint的祖先元素的padding box;
+            (部分只在 Google浏览器奏效，部分在Google和Safari浏览器都生效)
+        优先级较低的：
+            viewport区域
+    -->
+    <div class="container1">
+        <div class="box1"></div>
+    </div>
+
+
+    <!-- position: absolute 的元素
+    
+         其containing block指的是
+         1、position取 relative、absolute、fixed或sticky的最近祖先元素的padding box；
+         2、同上边fixed的情形 
+    -->
+    <div class="container2">
+        <div class="box2"></div>
+    </div>
+
+    
+    <!-- position: static\relative\sticky 的元素
+    
+        其containing block指的是
+        1、最近的块级祖先元素的content box；
+        2、最近的BFC祖先元素的content box；
+    -->
+    <div class="container3">
+        <div class="box3"></div>
+    </div>
+</body>
+</html>

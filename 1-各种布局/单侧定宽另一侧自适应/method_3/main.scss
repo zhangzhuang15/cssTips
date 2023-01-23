@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap {
+    width: 80%;
+    height: 400px;
+    .left {
+        float: left;
+        width: 200px;
+        background-color: lightcoral;
+        height: 100%;
+    }
+
+    .right {
+        background-color: lightblue;
+        // 注释掉这一行，right的左边框会和 left的左边框重合
+        overflow: hidden;
+        height: 100%;
+    }
+
+}
