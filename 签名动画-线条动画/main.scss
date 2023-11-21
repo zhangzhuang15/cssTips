@@ -1,0 +1,38 @@
+@use "./variable.scss" as v;
+
+/*
+   修改 dash-width 的属性值，尝试 10px 100px 200px 300px 320px 350px 400px,
+   看看动画有什么效果。
+*/
+
+@keyframes grow {
+    0% {
+        stroke-dashoffset: 1px;
+        stroke-dasharray: 0 v.$dash-width;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    40% {
+        stroke-dasharray: v.$dash-width 0;
+    }
+
+    85% {
+        stroke-dasharray: v.$dash-width 0;
+    }
+
+    95%, to {
+        stroke-dasharray: 0 v.$dash-width;
+    }
+}
+
+.p {
+    stroke: black;
+    stroke-dashoffset: 1px; 
+    stroke-dasharray: v.$dash-width 0;
+    animation: grow 10s ease forwards infinite;
+    transform-origin: center;
+}

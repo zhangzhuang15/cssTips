@@ -1,4 +1,5 @@
 *.css.map
 */*.css.map
 */**/*.css.map
+**/*.css
 .ignore
