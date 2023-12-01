@@ -1,0 +1,81 @@
+.container {
+    position: relative;
+    top: 100px;
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    // 根据容器内的内容由浏览器计算适当的宽度，
+    // 避免占据一整行屏幕的宽度
+    width:fit-content;
+    height: 50px;
+    padding: 4px;
+    background: rgba(44, 43, 43, 0.3);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    transition: all .5s;
+
+    .app-container {
+        position: relative;
+        height: 60px;
+        display: flex;
+        align-items: center;
+    }
+
+    .activate::after {
+        content: "";
+        display: block;
+        border: 2px solid white;
+        border-radius: 50%;
+        width: 0;
+        height: 0;
+        position: absolute;
+        bottom: 2px;
+        color: white;
+        left: 50%;
+    }
+
+    .app {
+        width: 40px;
+        height: 40px;
+        border: 1px solid;
+        border-radius: 10px;
+        background-color: black;
+        transition: all .5s;
+    }
+
+    .main-effect {
+        width: 80px;
+        height: 80px;
+        transform: translateY(-40px);
+    }
+
+    .second-effect {
+        width: 60px;
+        height: 60px;
+        transform: translateY(-20px);
+    }
+
+    .third-effect {
+        width: 50px;
+        height: 50px;
+        transform: translateY(-10px);
+    }
+
+    @keyframes jump {
+        from {
+            transform: translateY(-40px);
+        }
+
+        50% {
+            transform: translateY(-60px);
+        }
+
+        to {
+            transform: translateY(-40px);
+        }
+    }
+    .animation-once {
+        animation: 1s jump ease-out;
+    }
+}

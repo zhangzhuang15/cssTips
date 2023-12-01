@@ -22,5 +22,18 @@
         你好，这是一个非常简单的例子，告诉你如何令容器内的文字，只展示3行；
         当然，根据你自己的需要，可以设置为 4行、5行等等
     </div>  
+
+
+    <script>
+        const node = document.getElementsByClassName("container")[0]
+
+        // 监听 Ctrl + I
+        window.addEventListener("keypress", (e) => {
+            if (e.ctrlKey && e.code === "KeyI") {
+                console.log(node.scrollHeight > node.clientHeight)
+            }
+        })
+       
+    </script>
 </body>
 </html>
