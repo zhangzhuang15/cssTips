@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .outer {
+            width: 400px;
+            height: 600px;
+            will-change: transform;
+            border: 1px solid green;
+        }
+
+        .inner {
+            position: sticky;
+            top: 0;
+            height: 300px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+      鼠标往下滚动，浅蓝色区域的inner会静止不动，当浅蓝色区域的下边沿
+      触碰到第一个outer的底部框线后，浅蓝色区域会随着outer恢复滚动。
+    -->
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+    <div class="outer"></div>
+</body>
+</html>
